@@ -8,7 +8,16 @@ export function extractResultQueryParam(req) {
   return result;
 }
 
+function bodyAttributeShouldExist(req) {
+  if (!req.body) throw new Error("An invalid request is given"); 
+}
+
+function validateRequest(req) {
+  bodyAttributeShouldExist(req);
+}
+
 export function extractNumbers(req) {
+  validateRequest(req);
   return [req.body.num1, req.body.num2];
 }
 
