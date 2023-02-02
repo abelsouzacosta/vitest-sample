@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { extractNumbers } from '../parser';
+import { extractNumbers, extractResultQueryParam } from '../parser';
 
 describe("parser", () => {
   describe("extractNumbers", () => {
@@ -50,4 +50,18 @@ describe("parser", () => {
       });
     });
   });
+
+  describe("extractResultQueryParam", () => {
+    describe("Success Case", () => {
+      it("should extract result from query parameter", () => {
+        const request = {
+          query: {
+            result: 10
+          }
+        };
+        const result = extractResultQueryParam(request);
+        expect(result).toBe(request.query.result);
+      })
+    })
+  })
 });
