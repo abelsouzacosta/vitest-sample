@@ -9,9 +9,6 @@ export function extractResultQueryParam(req) {
 }
 
 export function extractNumbers(req) {
-  const num1Input = req.body.num1;
-  const num2Input = req.body.num2;
-
-  return [num1Input, num2Input];
+  return [req.body.num1, req.body.num2];
 }
 
