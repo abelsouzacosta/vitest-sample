@@ -62,6 +62,16 @@ describe("parser", () => {
         const result = extractResultQueryParam(request);
         expect(result).toBe(request.query.result);
       })
+    });
+
+    describe("Fail Cases", () => {
+      it("should throw an error if request not have the query attribute", () => {
+        const request = {};
+        const resultFn = () => {
+          extractResultQueryParam(request);
+        };
+        expect(resultFn).toThrowError("The query attribute should be provided");
+      });
     })
   })
 });

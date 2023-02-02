@@ -1,4 +1,9 @@
+function validateRequestQuery(req) {
+  if (!req.query) throw new Error("The query attribute should be provided");
+}
+
 export function extractResultQueryParam(req) {
+  validateRequestQuery(req);
   let result = req.query.result;
 
   if (!result) {
