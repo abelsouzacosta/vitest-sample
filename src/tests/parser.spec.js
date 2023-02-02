@@ -24,6 +24,30 @@ describe("parser", () => {
         }
         expect(resultFn).toThrowError("An invalid request is given");
       });
+
+      it("should throw an error if argument num1 is not given", () => {
+        const invalidRequest = {
+          body: {
+            num2: 20
+          }
+        };
+        const resultFn = () => {
+          extractNumbers(invalidRequest);
+        };
+        expect(resultFn).toThrowError("Argument num1 should be provided inside request body attribute");
+      });
+
+      it("should throw an error if argument num2 is not given", () => {
+        const invalidRequest = {
+          body: {
+            num1: 20
+          }
+        };
+        const resultFn = () => {
+          extractNumbers(invalidRequest);
+        };
+        expect(resultFn).toThrowError("Argument num2 should be provided inside request body attribute");
+      });
     });
   });
 });
