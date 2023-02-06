@@ -6,7 +6,8 @@ describe("add", () => {
     it("should return the sum of the numbers inside the given array", () => {
       const numbers = [1, 2, 3]
       const result = add(numbers);
-      expect(result).toBe(6);
+      const expectedValue = numbers.reduce((acc, current) => acc + current, 0);
+      expect(result).toEqual(expectedValue);
     });
   })
 
@@ -43,6 +44,15 @@ describe("add", () => {
         add(invalidArgument);
       };
       expect(resultFn).toThrowError("An array should be provided");
-    })
+    });
+
+    it("should throw an error if provided multiple arguments instead of an array", () => {
+      const number1 = 1;
+      const number2 = 2;
+      const resultFn = () => {
+        add(number1, number2);
+      };
+      expect(resultFn).toThrowError("An array should be provided");
+    });
   })
 });
