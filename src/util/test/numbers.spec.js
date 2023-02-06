@@ -9,6 +9,12 @@ describe("transformToNumber", () => {
       const expectedValue = +numberString;
       expect(result).toBe(expectedValue);
     });
+
+    it("the result expected should be the type number", () => {
+      const numberString = '1';
+      const result = transformToNumber(numberString);
+      expect(result).toBeTypeOf('number');
+    });
   });
 
   describe("Fail Cases", () => {
