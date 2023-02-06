@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "vitest --run --reporter verbose",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [],
   "author": "Abel Souza Costa Junior",
@@ -15,6 +16,8 @@
     "express": "^4.17.3"
   },
   "devDependencies": {
+    "@vitest/coverage-istanbul": "^0.28.4",
+    "c8": "^7.12.0",
     "vitest": "^0.9.0"
   }
 }
