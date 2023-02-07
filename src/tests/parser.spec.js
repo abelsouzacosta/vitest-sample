@@ -72,6 +72,16 @@ describe("parser", () => {
         };
         expect(resultFn).toThrowError("The query attribute should be provided");
       });
+
+      it("should return no-calc if query not have the result property", () => {
+        const request = {
+          query: {
+
+          }
+        };
+        const result = extractResultQueryParam(request);
+        expect(result).toBe('no-calc')
+      });
     })
   })
 });
